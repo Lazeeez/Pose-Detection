@@ -131,6 +131,7 @@ class PosePainter extends CustomPainter {
           ExternalPath.DIRECTORY_DOWNLOADS);
       final String filePath = '$path/$filename.csv';
       File file = File(filePath);
+      print(csv);
       file.writeAsString(csv);
 
       // String csvData = ListToCsvConverter().convert(rows);

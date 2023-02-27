@@ -4,7 +4,6 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:external_path/external_path.dart';
 import 'package:flutter/material.dart';
-
 import 'mainscreen.dart';
 
 class SaveFile extends StatefulWidget {
@@ -50,6 +49,7 @@ class _SaveFileState extends State<SaveFile> {
                     return null;
                   },
                 ),
+                Padding(padding: const EdgeInsets.only(top: 10.0)),
                 ElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
@@ -63,6 +63,12 @@ class _SaveFileState extends State<SaveFile> {
                       final file = File(filepath);
                       // save the file to the downloads folder
                       file.writeAsString('Hello World');
+                      // show snack bar
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                              'New file created Internal_Storage/Download/' +
+                                  _controller.text.toString() +
+                                  '.csv')));
                       Navigator.push(
                           context,
                           MaterialPageRoute(

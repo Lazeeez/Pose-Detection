@@ -88,26 +88,6 @@ class _CameraViewState extends State<CameraView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
-          if (_allowPicker)
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: _switchScreenMode,
-                child: Icon(
-                  _mode == ScreenMode.liveFeed
-                      ? Icons.photo_library_outlined
-                      : (Platform.isIOS
-                          ? Icons.camera_alt_outlined
-                          : Icons.camera),
-                ),
-              ),
-            ),
-          Container(
-            color: Colors.red,
-            child: widget.button,
-          )
-        ],
       ),
       body: _body(),
       floatingActionButton: _floatingActionButton(),
